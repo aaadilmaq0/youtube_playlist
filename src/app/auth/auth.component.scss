@@ -1,0 +1,70 @@
+.wrapper{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-image: url('https://www.maslowmedia.com/hubfs/Outsourcing-Video-1.jpg');
+    background-size: cover;
+    background-position: center;
+    .intro{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform:translateX(-50%); 
+        font-family: "ZCOOL QingKe HuangYou", cursive;
+        color: rgb(255, 189, 223);
+        text-align: center;
+    }
+    mat-card{
+        width: 45%;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: .9;
+        form > *{
+            width: 100%;
+            font-family: "ZCOOL QingKe HuangYou", cursive;
+            font-size: 18px;
+        }
+        p{
+            text-align: center;
+            font-style: italic;
+            font-family: "ZCOOL QingKe HuangYou", cursive;
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media (min-width:320px)  {
+    .intro{
+        font-size: 20px;
+    }
+}
+@media (min-width:481px)  {
+    .intro{
+        font-size: 25px;
+    }
+}
+@media (min-width:641px)  {
+    .intro{
+        font-size: 30px;
+    }
+}
+@media (min-width:961px)  {
+    .intro{
+        font-size: 35px;
+    }
+}
+@media (min-width:1025px) {
+    .intro{
+        font-size: 45px;
+    }
+}
+@media (min-width:1281px) {
+    .intro{
+        font-size: 50px;
+    }
+}

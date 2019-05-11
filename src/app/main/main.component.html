@@ -1,0 +1,109 @@
+<div class="wrapper container">
+  <div class="header row">
+    <div class="hello col-xs-3">
+      <p style="text-align:center" *ngIf="name">Hello, {{name.split(' ')[0]}}!</p>
+      <p style="text-align:center" *ngIf="!name">Hello!</p>
+    </div>
+    <div class="select col-xs-3">
+      <mat-form-field>
+        <mat-label>Search by</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="Name">Name</mat-option>
+          <mat-option value="Video ID">Video ID</mat-option>
+          <mat-option value="Video Link">Video Link</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="select col-xs-3">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Enter {{ selected }}"
+          [(ngModel)]="input"
+        />
+      </mat-form-field>
+    </div>
+    <div class="col-xs-1">
+      <i
+        style="padding-top:10px;font-size:30px;cursor: pointer;"
+        (click)="search()"
+        class="material-icons"
+      >
+        youtube_searched_for
+      </i>
+    </div>
+    <div class="col-xs-2" style="text-align:center">
+      <i
+        style="padding-top:10px;font-size:30px;cursor: pointer; margin-right: 0;display: block"
+        (click)="authService.logout()"
+        class="material-icons"
+      >
+        exit_to_app
+      </i>
+    </div>
+  </div>
+  <div class="content row">
+    <div class="list">
+      <p *ngIf="!library.length" style="color:white;width:100%;text-align:center;position:absolute;top:10%;left:50%;transform:translate(-50%,-50%)">It's empty here :( Add some videos to library</p>
+      <img *ngIf="!library.length"
+      class="img img-responsive"
+      style="width:70%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"
+       src="https://youthincmag.com/wp-content/uploads/2018/07/Youtube-Fake-News-1.jpg">
+        <div class="library" style="padding-top:10px" *ngIf="library.length">
+          <div class="row controls">
+              <i (click)="pause()" class="material-icons white-icon" *ngIf="canBePaused">
+                  pause
+              </i>
+              <i (click)="play()"
+               class="material-icons white-icon" *ngIf="canBePlayed || !startedPlaying">
+                  play_arrow
+              </i>
+          </div>
+            <div
+              class="playlist row"
+              style="width:100%px"
+              *ngFor="let video of library; let i = index"
+            >
+              <div class="col-xs-12" style="position:relative">
+                <a style="cursor:pointer" (click)="clickStartVideo(i)">
+                <img
+                  class="thumbnail img img-responsive"
+                  width="75%"
+                  style="display:block;margin-left:auto;margin-right:auto;border-radius:15px"
+                  height="180px"
+                  [src]="video.thumbnail"
+                />
+                </a>
+                <div class="nowplaying" *ngIf="i == index" style="border-radius:10px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background-color:rgba(0, 0, 0, .5)">
+                    <i class="material-icons white-icon" style="padding-top:3px;font-size:30px">
+                        music_note
+                    </i>
+                </div>
+              </div>
+              <div class="info col-xs-12">
+                <p style="text-align:center;color:wheat">
+                  <strong>{{ video.title }}</strong> <br />
+                  <u>{{ video.channel }}</u>
+                </p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="video">
+      <p style='color:white;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:30px;text-align:center;font-family:"ZCOOL QingKe HuangYou", cursive;' *ngIf="!startedPlaying">Click the Play Button to start</p>
+      <p style='color:white;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:30px;text-align:center;font-family:"ZCOOL QingKe HuangYou", cursive;' *ngIf="loading">{{loading}}</p>
+      <div class="video-container" #videoContainer>
+          <div [ngStyle]="{'visibility': (startedPlaying) ? 'visible' : 'hidden'}" id="player"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="searchList" *ngIf="searchResults.length">
+  <i class="material-icons close" (click)="searchResults = []">close</i>
+  <app-search-list
+    [searchResults]="searchResults"
+    [library]="library"
+    (newVideo)="addNewVideo($event)"
+  ></app-search-list>
+</div>

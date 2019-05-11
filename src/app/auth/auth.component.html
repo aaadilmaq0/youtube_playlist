@@ -1,0 +1,58 @@
+<div class="wrapper container">
+<p class="intro">Create your own youtube library</p>
+  <mat-card>
+      <p class="message" *ngIf="message">{{message}}</p>
+    <form [formGroup]="form">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="email*"
+          type="email"
+          formControlName="email"
+          maxlength="100"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="password*"
+          type="password"
+          formControlName="password"
+          maxlength="100"
+        />
+      </mat-form-field>
+      <br />
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="login()"
+        [disabled]="!form.valid"
+      >
+        login
+      </button>
+      <br />
+      <hr />
+      <p>OR REGISTER</p>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="name(optional)"
+          type="text"
+          formControlName="name"
+          maxlength="100"
+        />
+      </mat-form-field>
+      <br />
+
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="register()"
+        [disabled]="!form.valid"
+      >
+        register
+      </button>
+    </form>
+  </mat-card>
+</div>

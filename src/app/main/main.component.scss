@@ -1,0 +1,173 @@
+.searchList {
+  position: absolute;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  background-color: black;
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 35px;
+    color: wheat;
+    z-index: 2;
+  }
+  app-search-list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+}
+
+.wrapper {
+  z-index: 0;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: black;
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  .header {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(192, 192, 255);
+    border-radius: 25px;
+    margin: 0;
+    font-family: "ZCOOL QingKe HuangYou", cursive;
+    line-height: 50px;
+    color: rgb(47, 50, 54);
+    .select {
+      padding-top: 2px;
+      mat-form-field {
+        width: 100%;
+        mat-label {
+          color: rgb(47, 50, 54);
+        }
+      }
+    }
+  }
+  .content {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px);
+    margin: 0;
+    padding: 0;
+    .list {
+      position: relative;
+      border-radius: 10px;
+      display: inline-block;
+      background-color: rgb(53, 48, 48);
+      .library {
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        .controls {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+          .material-icons:hover {
+            color: red;
+            cursor: pointer;
+          }
+        }
+        .thumbnail:hover {
+          box-shadow: 5px 5px 5px gray;
+        }
+      }
+    }
+    .video {
+        position: relative;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding: 0;
+      display: inline-block;
+      background-color: rgb(25, 0, 39);
+      position: relative;
+      .video-container{
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        padding-bottom: 56.25%; 
+        height: 0;
+      }
+      .video-container iframe, .video-container object, .video-container embed { 
+          z-index: 1;
+        position: relative;
+        width: 100%; 
+        height: 100%;
+    }
+    }
+  }
+}
+
+@media (min-width: 320px) {
+  .list {
+    height: 50%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .video {
+    height: 50%;
+    width: calc(100% - 10px);
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  .hello {
+    font-size: 11px;
+  }
+}
+@media (min-width: 481px) {
+  .hello {
+    font-size: 16px;
+  }
+}
+@media (min-width: 641px) {
+  .list {
+    height: 100%;
+    width: 25%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .video {
+    height: 100%;
+    width: calc(75% - 10px);
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  .hello {
+    font-size: 19px;
+  }
+}
+@media (min-width: 961px) {
+  .hello {
+    font-size: 22px;
+  }
+}
+@media (min-width: 1025px) {
+  .hello {
+    font-size: 26px;
+  }
+}
+@media (min-width: 1281px) {
+  .hello {
+    font-size: 30px;
+  }
+}
+
+.white-icon {
+  color: white;
+}

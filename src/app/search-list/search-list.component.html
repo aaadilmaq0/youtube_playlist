@@ -1,0 +1,34 @@
+<div class="wrapper" *ngIf="videos.length">
+  <div class="video row" *ngFor="let video of videos; let i = index">
+    <div class="col-xs-12">
+      <img
+        class="img img-responsive"
+        width="100%"
+        height="180px"
+        [src]="video.thumbnail"
+      />
+    </div>
+    <div class="info col-xs-12">
+      <p style="font-size: 18px">
+        <strong>{{ video.title }}</strong>
+      </p>
+      <p style="font-size: 15px">
+        {{video.channel}}
+      </p>
+    </div>
+    <div class="slider col-xs-12">
+      <ng5-slider
+        [(value)]="video.start"
+        [(highValue)]="video.end"
+        [options]="options[i]"
+      ></ng5-slider>
+    </div>
+    <a (click)="add(i)"
+      >Add to Library <br />
+      <i class="material-icons">
+        videogame_asset
+      </i></a
+    >
+    <hr />
+  </div>
+</div>

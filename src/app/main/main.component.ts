@@ -192,7 +192,7 @@ export class MainComponent implements OnInit, OnDestroy {
         }
       });
     } else if (this.selected == "Video Link") {
-      this.youtubeService.getResultsById(this.input).subscribe(response => {
+      this.youtubeService.getResultsById(new URL(this.input).searchParams.get("v")).subscribe(response => {
         if (!response["items"].length) {
           this.notificationService.showDanger("No results");
         } else {

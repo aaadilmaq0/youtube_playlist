@@ -2,7 +2,7 @@
   <div class="header row">
     <div class="hello col-xs-3">
       <p style="text-align:center" *ngIf="name">Hello, {{name.split(' ')[0]}}!</p>
-      <p style="text-align:center" *ngIf="!name">Hello!</p>
+      <p style="text-align:center" *ngIf="!name || name=='null'">Hello!</p>
     </div>
     <div class="select col-xs-3">
       <mat-form-field>

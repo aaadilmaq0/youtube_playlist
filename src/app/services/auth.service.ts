@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-const url = "http://localhost:8081";
-// const url = "http://projectmurmur.us-east-2.elasticbeanstalk.com";
+// const url = "http://localhost:8081";
+const url = "http://projectmurmur.us-east-2.elasticbeanstalk.com";
 
 @Injectable({
   providedIn: 'root'

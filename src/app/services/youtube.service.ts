@@ -7,8 +7,8 @@ const part: string = "snippet";
 const type: string = "video";
 const maxResults: number = 25;
 
-const url = "http://localhost:8081";
-// const url = "http://projectmurmur.us-east-2.elasticbeanstalk.com";
+// const url = "http://localhost:8081";
+const url = "http://projectmurmur.us-east-2.elasticbeanstalk.com";
 
 @Injectable({
   providedIn: "root"

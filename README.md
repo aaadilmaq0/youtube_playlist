@@ -1,8 +1,12 @@
 # Projectmurmur
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+The website is already hosted. The url is `http://myyoutubeplaylistwebsite.s3-website.ap-south-1.amazonaws.com`.
 
 ## Development server
+
+Clone the project. Go the to project location and run `sudo npm install`.
+
+Run the backend server with command `npm run startserver`.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 

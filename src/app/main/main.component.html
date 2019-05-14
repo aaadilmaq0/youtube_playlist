@@ -1,8 +1,8 @@
 <div class="wrapper container">
   <div class="header row">
     <div class="hello col-xs-3">
-      <p style="text-align:center" *ngIf="name">Hello, {{name.split(' ')[0]}}!</p>
-      <p style="text-align:center" *ngIf="!name || name=='null'">Hello!</p>
+      <p style="text-align:center" *ngIf="name && name!='undefined' && name!='null'">Hello, {{name.split(' ')[0]}}!</p>
+      <p style="text-align:center" *ngIf="!name || name=='undefined' || name=='null'">Hello!</p>
     </div>
     <div class="select col-xs-3">
       <mat-form-field>
@@ -90,10 +90,18 @@
           </div>
     </div>
     <div class="video">
-      <p style='color:white;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:30px;text-align:center;font-family:"ZCOOL QingKe HuangYou", cursive;' *ngIf="!startedPlaying">Click the Play Button to start</p>
-      <p style='color:white;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:30px;text-align:center;font-family:"ZCOOL QingKe HuangYou", cursive;' *ngIf="loading">{{loading}}</p>
-      <div class="video-container" #videoContainer>
-          <div [ngStyle]="{'visibility': (startedPlaying) ? 'visible' : 'hidden'}" id="player"></div>
+      <div class="title">
+          <p class="abc" style='color:rgb(255, 226, 226);text-align:center;font-family:"ZCOOL QingKe HuangYou", cursive;' *ngIf="index!=-1 && library.length && startedPlaying">{{library[index].title}}</p>
+      </div>
+      <div class="videoContent">
+          <p style='color:white;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:30px;text-align:center;font-family:"ZCOOL QingKe HuangYou", cursive;' *ngIf="!startedPlaying">Click the Play Button to start</p>
+          <p style='color:white;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:30px;text-align:center;font-family:"ZCOOL QingKe HuangYou", cursive;' *ngIf="loading">{{loading}}</p>
+          <div class="video-container" #videoContainer>
+              <div [ngStyle]="{'visibility': (startedPlaying) ? 'visible' : 'hidden'}" id="player"></div>
+          </div>
+      </div>
+      <div class="views">
+          <p class="abc" style='width:100%;height:auto;position:absolute;bottom: 0%;left:50%;transform:translateX(-50%);color:rgb(255, 226, 226);text-align:center;font-family:"ZCOOL QingKe HuangYou", cursive;' *ngIf="index!=-1 && library.length && startedPlaying &&library[index].views">{{library[index].views}}&nbsp;&nbsp;views</p>
       </div>
     </div>
   </div>

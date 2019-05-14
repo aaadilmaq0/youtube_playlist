@@ -62,7 +62,8 @@ export class SearchListComponent implements OnInit, OnDestroy {
             seconds: s,
             channel: response["items"][0]["snippet"]["channelTitle"],
             start: 0,
-            end: h * 3600 + m * 60 + s
+            end: h * 3600 + m * 60 + s,
+            views : response["items"][0]["statistics"]["viewCount"]
           });
         })
       );

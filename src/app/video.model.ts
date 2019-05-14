@@ -7,5 +7,6 @@ export interface Video{
     hours:number,
     minutes:number,
     seconds:number,
-    channel:string
+    channel:string,
+    views?:number
 }

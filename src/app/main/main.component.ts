@@ -112,11 +112,12 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   clickStartVideo(i: number) {
-    if (this.player) {
+    if (this.startedPlaying) {
       this.player.destroy();
       clearInterval(this.interval);
     }
-    if (!this.startedPlaying) this.startedPlaying = true;
+    else
+     this.startedPlaying = true;
     var x = setInterval(() => {
       this.loading = this.loading + "..";
     }, 150);
@@ -153,8 +154,13 @@ export class MainComponent implements OnInit, OnDestroy {
       }, 1000);
     }
     if (event["data"] == 0 && this.index == this.library.length - 1) {
+      clearInterval(this.interval);
+      setTimeout(()=>{
+        this.player.destroy();
+      },5);
       this.index = 0;
       this.startedPlaying = false;
+      this.notificationService.showSuccess("You have watched the entire library");
     }
   }
 

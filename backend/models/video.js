@@ -8,7 +8,8 @@ var Video = {
     hours : { type : Number},
     minutes : { type : Number},
     seconds : { type : Number},
-    channel : { type : String, required: true }
+    channel : { type : String, required: true },
+    views: { type: Number}
 }
 const videoSchema = mongoose.Schema({
     userId : {type: String, required:true},

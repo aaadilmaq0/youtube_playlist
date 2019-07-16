@@ -1,4 +1,4 @@
-# Projectmurmur
+# My Youtube Playlist
 
 The website is already hosted. The url is `http://myyoutubeplaylistwebsite.s3-website.ap-south-1.amazonaws.com`.
 
